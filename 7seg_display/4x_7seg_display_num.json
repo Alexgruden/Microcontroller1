@@ -1,0 +1,88 @@
+{
+    "version": 1,
+    "author": "Alexander",
+    "editor": "wokwi",
+    "parts": [
+      { "type": "wokwi-breadboard-half", "id": "bb1", "top": -175.8, "left": -160.4, "attrs": {} },
+      { "type": "wokwi-arduino-uno", "id": "uno", "top": 163.8, "left": -115.8, "attrs": {} },
+      {
+        "type": "wokwi-7segment",
+        "id": "sevseg1",
+        "top": -109.38,
+        "left": -123.68,
+        "attrs": { "digits": "4" }
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r1",
+        "top": -72,
+        "left": 66.65,
+        "rotate": 90,
+        "attrs": { "value": "330" }
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r2",
+        "top": -72,
+        "left": 76.25,
+        "rotate": 90,
+        "attrs": { "value": "330" }
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r3",
+        "top": -72,
+        "left": 85.85,
+        "rotate": 90,
+        "attrs": { "value": "330" }
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r4",
+        "top": -72,
+        "left": 95.45,
+        "rotate": 90,
+        "attrs": { "value": "330" }
+      }
+    ],
+    "connections": [
+      [ "bb1:28b.i", "uno:3", "yellow", [ "v0" ] ],
+      [ "bb1:27b.i", "uno:4", "yellow", [ "v0" ] ],
+      [ "bb1:26b.i", "uno:5", "yellow", [ "v0" ] ],
+      [ "bb1:25b.i", "uno:6", "yellow", [ "v0" ] ],
+      [ "bb1:13t.a", "bb1:27t.a", "purple", [ "v-57.6", "h134.4" ] ],
+      [ "bb1:9t.a", "bb1:28t.b", "purple", [ "v-67.2", "h182.4" ] ],
+      [ "bb1:12t.a", "bb1:26t.c", "purple", [ "v-86.4", "h134.4" ] ],
+      [ "bb1:14b.j", "bb1:25t.c", "purple", [ "v-153.6", "h105.6" ] ],
+      [ "uno:7", "bb1:15t.b", "orange", [ "v-28.8", "h3.6", "v-278.4", "h-76.8" ] ],
+      [ "uno:8", "bb1:13b.i", "orange", [ "v-182.4", "h-76.4" ] ],
+      [ "uno:9", "bb1:12b.i", "orange", [ "v-172.8", "h-76" ] ],
+      [ "uno:10", "bb1:10b.i", "orange", [ "v-163.2", "h-85.7" ] ],
+      [ "uno:11", "bb1:9b.i", "orange", [ "v-153.6", "h-85.8" ] ],
+      [ "uno:12", "bb1:11t.a", "orange", [ "v-76.8", "h-162.7", "v-211.2", "h105.6" ] ],
+      [ "uno:13", "bb1:10t.a", "orange", [ "v-38.4", "h-201.2", "v-259.2" ] ],
+      [ "sevseg1:A", "bb1:10t.c", "", [ "$bb" ] ],
+      [ "sevseg1:B", "bb1:14t.c", "", [ "$bb" ] ],
+      [ "sevseg1:C", "bb1:12b.h", "", [ "$bb" ] ],
+      [ "sevseg1:D", "bb1:10b.h", "", [ "$bb" ] ],
+      [ "sevseg1:E", "bb1:9b.h", "", [ "$bb" ] ],
+      [ "sevseg1:F", "bb1:11t.c", "", [ "$bb" ] ],
+      [ "sevseg1:G", "bb1:13b.h", "", [ "$bb" ] ],
+      [ "sevseg1:DP", "bb1:11b.h", "", [ "$bb" ] ],
+      [ "sevseg1:DIG1", "bb1:9t.c", "", [ "$bb" ] ],
+      [ "sevseg1:DIG2", "bb1:12t.c", "", [ "$bb" ] ],
+      [ "sevseg1:DIG3", "bb1:13t.c", "", [ "$bb" ] ],
+      [ "sevseg1:DIG4", "bb1:14b.h", "", [ "$bb" ] ],
+      [ "sevseg1:COM", "bb1:15b.h", "", [ "$bb" ] ],
+      [ "sevseg1:CLN", "bb1:15t.c", "", [ "$bb" ] ],
+      [ "r1:1", "bb1:25t.d", "", [ "$bb" ] ],
+      [ "r1:2", "bb1:25b.h", "", [ "$bb" ] ],
+      [ "r2:1", "bb1:26t.d", "", [ "$bb" ] ],
+      [ "r2:2", "bb1:26b.h", "", [ "$bb" ] ],
+      [ "r3:1", "bb1:27t.d", "", [ "$bb" ] ],
+      [ "r3:2", "bb1:27b.h", "", [ "$bb" ] ],
+      [ "r4:1", "bb1:28t.d", "", [ "$bb" ] ],
+      [ "r4:2", "bb1:28b.h", "", [ "$bb" ] ]
+    ],
+    "dependencies": {}
+  }
