@@ -1,10 +1,13 @@
-#include <Arduino.h>
 #include <Stepper.h>
 
 constexpr uint8_t encoderPinA = 2;
 constexpr uint8_t encoderPinB = 3;
 constexpr uint16_t stepsPerRevolution = 2048;
 constexpr uint8_t encoderSteps = 20;
+constexpr uint8_t stepsPerClick = 102;
+constexpr uint8_t RPM = 12;
+
+
 
 int8_t lastEncoderCount = 0;
 volatile int8_t encoderPosCount = 0;
@@ -23,12 +26,16 @@ void setup() {
 }
 
 void loop() {
+  myStepper.setSpeed(RPM);
+
   if (encoderPosCount != lastEncoderCount) {
     Serial.print ("Rotated: ");
     if (bClockWise){
       Serial.println ("clockwise");
+      myStepper.step(stepsPerClick); // Move cw equal to 1 step of the rotary encoder
     } else {
       Serial.println("counterclockwise");
+      myStepper.step(-stepsPerClick); // Move ccw
     }
     Serial.print("Encoder Position: ");
     Serial.println(encoderPosCount);
