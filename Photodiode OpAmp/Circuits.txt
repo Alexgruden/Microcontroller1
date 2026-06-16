@@ -1,0 +1,6 @@
+Created 3 digrams in my notebook for this Lab:
+
+1. A light activated circuit - Uses a transistor to activate a LED when there is light
+2. A Darkness Detecting Circuit - detects when there is darkness and does the opposite of the light activated circuit.
+3. Photodiote Amplifier Circuit - Photodiote module producing a small current connects to op amp. The tiny current is then
+amplified to be able to be read. The bias section makes sure the whole thing works properly on a single supply.
