@@ -16,6 +16,9 @@ volatile bool bClockWise;
 
 // Pins entered in sequence IN1-IN3-IN2-IN4
 Stepper myStepper = Stepper(stepsPerRevolution, 8, 10, 9, 11);
+// Set stepper rpm
+// Doesnt need to be set insite loop()
+myStepper.setSpeed(RPM);
 
 void setup() {
   pinMode(encoderPinA, INPUT_PULLUP);
@@ -26,7 +29,6 @@ void setup() {
 }
 
 void loop() {
-  myStepper.setSpeed(RPM);
 
   if (encoderPosCount != lastEncoderCount) {
     Serial.print ("Rotated: ");
