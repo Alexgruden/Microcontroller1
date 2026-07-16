@@ -1,0 +1,18 @@
+{
+    "version": 1,
+    "author": "Alexander",
+    "editor": "wokwi",
+    "parts": [
+      { "type": "wokwi-arduino-uno", "id": "uno", "top": -268.2, "left": 47.4, "attrs": {} },
+      { "type": "wokwi-breadboard-half", "id": "bb1", "top": 0, "left": 50, "attrs": {} },
+      { "type": "wokwi-mpu6050", "id": "imu1", "top": 20, "left": 200, "attrs": {} }
+    ],
+    "connections": [
+      [ "imu1:VCC", "uno:5V", "red", [] ],
+      [ "imu1:GND", "uno:GND.1", "black", [] ],
+      [ "imu1:SDA", "uno:A4", "blue", [] ],
+      [ "imu1:SCL", "uno:A5", "yellow", [] ],
+      [ "imu1:AD0", "uno:GND.2", "black", [] ]
+    ],
+    "dependencies": {}
+  }
