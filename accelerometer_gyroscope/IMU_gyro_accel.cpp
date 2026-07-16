@@ -10,7 +10,6 @@ float accAngleX, accAngleY, gyroAngleX, gyroAngleY, gyroAngleZ;
 float roll, pitch, yaw;
 float AccErrorX, AccErrorY, GyroErrorX, GyroErrorY, GyroErrorZ;
 float elapsedTime, currentTime, previousTime;
-int c = 0;
 
 void setup() {
     Serial.begin(19200); // Twice normal buad rate
@@ -35,7 +34,7 @@ void calculate_imu_error () {
     // We can call this funtion in the setup section to calculate the accelerometer and gyro data error. From here we will get the error values used in the above equations printed on the Serial Monitor.
     // Note that we should place the IMU flat in order to get the proper values, so that we then can the correct values
     // Read accelerometer values 200 times
-    while (c < 200) {
+   for (int c = 0; c < 200; c++) {
         Wire.beginTransmission(MPU);
         Wire.write(0x3B);
         Wire.endTransmission(false);
@@ -46,14 +45,13 @@ void calculate_imu_error () {
         // Sum all readings
         AccErrorX = AccErrorX + ((atan((AccY) / sqrt(pow((AccX), 2) + pow((AccZ), 2))) * 180 / PI));
         AccErrorY = AccErrorY + ((atan(-1 * (AccX) / sqrt(pow((AccY), 2) + pow((AccZ), 2))) * 180 / PI));
-        c++;
     }
     //Divide the sum by 200 to get the error value
     AccErrorX = AccErrorX / 200;
     AccErrorY = AccErrorY / 200;
-    c = 0;
+
     // Read gyro values 200 times
-    while (c < 200) {
+    for (int c = 0; c < 200; c++) {     
         Wire.beginTransmission(MPU);
         Wire.write(0x43);
         Wire.endTransmission(false);
@@ -65,9 +63,8 @@ void calculate_imu_error () {
         GyroErrorX = GyroErrorX + (GyroX / 131.0);
         GyroErrorY = GyroErrorY + (GyroY / 131.0);
         GyroErrorZ = GyroErrorZ + (GyroZ / 131.0);
-    c++;
     }
-    
+
     //Divide the sum by 200 to get the error value
     GyroErrorX = GyroErrorX / 200;
     GyroErrorY = GyroErrorY / 200;
